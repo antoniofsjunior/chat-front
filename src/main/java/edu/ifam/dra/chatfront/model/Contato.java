@@ -1,15 +1,26 @@
 package edu.ifam.dra.chatfront.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class Contato {
 	private Long id;
 	
+	@NotBlank
 	private String nome;
+	@Email
 	private String email;
+	@NotBlank
 	private String telefone;
+	@NotBlank
 	private String endereco;
+	@NotBlank
 	private String bairro;
+	@NotBlank
 	private String cidade;
+	@NotBlank
 	private String estado;
+
 	public Long getId() {
 		return id;
 	}
