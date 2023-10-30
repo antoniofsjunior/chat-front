@@ -17,7 +17,7 @@ public class ContatoFrontController {
 	@Autowired
 	ContatoFrontService contatoFrontService;
 
-	@GetMapping("/mostrarContatos")
+	@GetMapping("/mostrarcontatos")
 	public String mostraContatos(Model model) {
 		
 		model.addAttribute("contatos", contatoFrontService.getContatos());
@@ -25,7 +25,7 @@ public class ContatoFrontController {
 		
 	}
 	
-	@GetMapping("/novoContato")
+	@GetMapping("/novocontato")
 	public String novoContato(Contato contato) {
 		return "novoContato";
 	}
@@ -37,6 +37,6 @@ public class ContatoFrontController {
         }
         
         contatoFrontService.postContato(contato);
-        return "redirect:/mostrarContatos";
+        return "redirect:/mostrarcontatos";
     }
 }
