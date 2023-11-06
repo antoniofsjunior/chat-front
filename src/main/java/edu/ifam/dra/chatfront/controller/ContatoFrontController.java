@@ -35,7 +35,15 @@ public class ContatoFrontController {
 		return "novoContato";
 	}
 	
-    @PostMapping
+	@PutMapping("/alterar/{id}")
+	public String alterarContato(@PathVariable Long id,
+			@Validated Contato contato, BindingResult result, Model model) {
+		
+		model.addAttribute("contato", contatoFrontService.getContato(id));
+		return "alterarContato";
+	}
+
+	@PostMapping
     public String inserirContato(@Validated Contato contato, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "novoContato";
@@ -48,6 +56,7 @@ public class ContatoFrontController {
     @PutMapping("/{id}")
     public String alterarContato(@PathVariable long id,
     		@Validated Contato contato, BindingResult result, Model model) {
+    	contatoFrontService.putContato(id, contato);
     	return "redirect:/contato";
     }
     
